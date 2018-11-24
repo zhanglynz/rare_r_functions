@@ -16,13 +16,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Preface {-}
 
-This is a book written for myself. Having said that, the meanings of "rare" and "useful" in
-the book title are totally decided/interpreted by one person, i.e. me--that is great freedom to me!
+This is a book written for myself. Having said that, the meanings of "rare" and "useful" in the book title are totally decided/interpreted by one person, i.e. me--that is great freedom to me!
 
 Actually, I pick up the functions in a random manner. Often, when I read other people's R code, if I see
 a function which is "rare and useful", then I will include it in this book. Good fun, isn't it?
 
-This book contains four (tentative) sections: 1. For creating data; 3. For processing data; 3. For logical checking; 4. For plotting; and 5. For other purposes.
+This book contains five (tentative) sections: 1. For creating data; 3. For processing data; 3. For logical checking; 4. For plotting; and 5. For other purposes.
+
+
 
 # For creating data {-}
 
@@ -60,6 +61,7 @@ library(rlang)
 (is_empty(character(0)))
 (is_empty(numeric(0)))
 (is_empty(logical()))
+(is_empty(NaN))
 ```
 
 
