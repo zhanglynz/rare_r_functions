@@ -21,7 +21,8 @@ This is a book written for myself. Having said that, the meanings of "rare" and 
 Actually, I pick up the functions in a random manner. Often, when I read other people's R code, if I see
 a function which is "rare and useful", then I will include it in this book. Good fun, isn't it?
 
-This book contains five (tentative) sections: 1. For creating data; 2. For processing data; 3. For logical checking; 4. For plotting; and 5. For other purposes.
+This book contains five sections: 1. For creating data; 2. For processing data; 3. For logical checking; 4. For plotting; and 5. For other purposes.
+
 
 
 
