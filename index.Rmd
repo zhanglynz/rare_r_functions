@@ -28,9 +28,26 @@ This book contains five sections: 1. For creating data; 2. For processing data; 
 
 # For creating data {-}
 
+## `base::expand.grid()`
+
+**Description**: `expand.grid` creates a data frame that has all the possible combinations from the inputs.
+
+**Example 1**: Create x-y coordinates.
+```{r}
+(plotting_df <- expand.grid(x = seq(0, 1, length.out = 5), 
+                           y = seq(0, 1, length.out = 5)))
+```
+
+**Example 2**: Create design matrix
+```{r}
+x <- rep(list(c(0, 1)), 4)
+(d <- expand.grid(x))
+```
+
+
 ## `base::outer()` 
 
-**Description**:`outer(x, y, FUN)` is to create a matrix with $m$ rows and $n$ columns, where $m$ and $n$ are lengths of `x` and `y`, respectively. The entry at $i, \ j$ position is given by `FUN(x[i], y[j])`. 
+**Description**:`outer(x, y, FUN)` creates a matrix with $m$ rows and $n$ columns, where $m$ and $n$ are lengths of `x` and `y`, respectively. The entry at $i, \ j$ position is given by `FUN(x[i], y[j])`. 
 
 **Example 1**: Create a times table.
 ```{r}

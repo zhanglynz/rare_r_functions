@@ -25,7 +25,7 @@
 <meta name="author" content="Lingyun Zhang">
 
 
-<meta name="date" content="2018-11-24">
+<meta name="date" content="2018-12-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,11 +101,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="for-creating-data.html"><a href="for-creating-data.html"><i class="fa fa-check"></i>For creating data</a><ul>
-<li class="chapter" data-level="0.1" data-path="for-creating-data.html"><a href="for-creating-data.html#baseouter"><i class="fa fa-check"></i><b>0.1</b> <code>base::outer()</code></a></li>
+<li class="chapter" data-level="0.1" data-path="for-creating-data.html"><a href="for-creating-data.html#baseexpand.grid"><i class="fa fa-check"></i><b>0.1</b> <code>base::expand.grid()</code></a></li>
+<li class="chapter" data-level="0.2" data-path="for-creating-data.html"><a href="for-creating-data.html#baseouter"><i class="fa fa-check"></i><b>0.2</b> <code>base::outer()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="for-processing-data.html"><a href="for-processing-data.html"><i class="fa fa-check"></i>For processing data</a></li>
 <li class="chapter" data-level="" data-path="for-logical-checking.html"><a href="for-logical-checking.html"><i class="fa fa-check"></i>For logical checking</a><ul>
-<li class="chapter" data-level="0.2" data-path="for-logical-checking.html"><a href="for-logical-checking.html#rlangis_empty"><i class="fa fa-check"></i><b>0.2</b> <code>rlang::is_empty()</code></a></li>
+<li class="chapter" data-level="0.3" data-path="for-logical-checking.html"><a href="for-logical-checking.html#rlangis_empty"><i class="fa fa-check"></i><b>0.3</b> <code>rlang::is_empty()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="for-plotting.html"><a href="for-plotting.html"><i class="fa fa-check"></i>For plotting</a></li>
 <li class="chapter" data-level="" data-path="for-other-purposes.html"><a href="for-other-purposes.html"><i class="fa fa-check"></i>For other purposes</a></li>
@@ -128,9 +129,62 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="for-creating-data" class="section level1 unnumbered">
 <h1>For creating data</h1>
+<div id="baseexpand.grid" class="section level2">
+<h2><span class="header-section-number">0.1</span> <code>base::expand.grid()</code></h2>
+<p><strong>Description</strong>: <code>expand.grid</code> creates a data frame that has all the possible combinations from the inputs.</p>
+<p><strong>Example 1</strong>: Create x-y coordinates.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(plotting_df &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">x =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">5</span>), 
+                           <span class="dt">y =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">5</span>)))</code></pre></div>
+<pre><code>##       x    y
+## 1  0.00 0.00
+## 2  0.25 0.00
+## 3  0.50 0.00
+## 4  0.75 0.00
+## 5  1.00 0.00
+## 6  0.00 0.25
+## 7  0.25 0.25
+## 8  0.50 0.25
+## 9  0.75 0.25
+## 10 1.00 0.25
+## 11 0.00 0.50
+## 12 0.25 0.50
+## 13 0.50 0.50
+## 14 0.75 0.50
+## 15 1.00 0.50
+## 16 0.00 0.75
+## 17 0.25 0.75
+## 18 0.50 0.75
+## 19 0.75 0.75
+## 20 1.00 0.75
+## 21 0.00 1.00
+## 22 0.25 1.00
+## 23 0.50 1.00
+## 24 0.75 1.00
+## 25 1.00 1.00</code></pre>
+<p><strong>Example 2</strong>: Create design matrix</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)), <span class="dv">4</span>)
+(d &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(x))</code></pre></div>
+<pre><code>##    Var1 Var2 Var3 Var4
+## 1     0    0    0    0
+## 2     1    0    0    0
+## 3     0    1    0    0
+## 4     1    1    0    0
+## 5     0    0    1    0
+## 6     1    0    1    0
+## 7     0    1    1    0
+## 8     1    1    1    0
+## 9     0    0    0    1
+## 10    1    0    0    1
+## 11    0    1    0    1
+## 12    1    1    0    1
+## 13    0    0    1    1
+## 14    1    0    1    1
+## 15    0    1    1    1
+## 16    1    1    1    1</code></pre>
+</div>
 <div id="baseouter" class="section level2">
-<h2><span class="header-section-number">0.1</span> <code>base::outer()</code></h2>
-<p><strong>Description</strong>:<code>outer(x, y, FUN)</code> is to create a matrix with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns, where <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are lengths of <code>x</code> and <code>y</code>, respectively. The entry at <span class="math inline">\(i, \ j\)</span> position is given by <code>FUN(x[i], y[j])</code>.</p>
+<h2><span class="header-section-number">0.2</span> <code>base::outer()</code></h2>
+<p><strong>Description</strong>:<code>outer(x, y, FUN)</code> creates a matrix with <span class="math inline">\(m\)</span> rows and <span class="math inline">\(n\)</span> columns, where <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> are lengths of <code>x</code> and <code>y</code>, respectively. The entry at <span class="math inline">\(i, \ j\)</span> position is given by <code>FUN(x[i], y[j])</code>.</p>
 <p><strong>Example 1</strong>: Create a times table.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="kw">outer</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">FUN =</span> <span class="st">&quot;*&quot;</span>))</code></pre></div>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
